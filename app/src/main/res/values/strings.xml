@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Stock Info</string>
+    <string name="stock_info">Stock Information</string>
+    <string name="search_stock_symbol">Search Stock: </string>
+    <string name="search_stock_symbol_hint">Enter stock symbol</string>
+    <string name="search_button_text">Search</string>
+</resources>

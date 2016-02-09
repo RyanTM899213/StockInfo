@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context="com.example.ryanmartin.stockinfo.StockActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/stock_info"
+        android:id="@+id/StockInfoText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SearchStockSymbolField"
+        android:hint="@string/search_stock_symbol_hint"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/StockInfoText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:singleLine="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_button_text"
+        android:id="@+id/SearchButton"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_alignBottom="@+id/SearchStockSymbolField"
+        android:layout_toRightOf="@+id/SearchStockSymbolField"
+        android:layout_toEndOf="@+id/SearchStockSymbolField"
+        android:onClick="onPressSearchButton" />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/SearchButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/black"
+        android:id="@+id/HairlineView" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/HairlineView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/stockLinearScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="yes"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
