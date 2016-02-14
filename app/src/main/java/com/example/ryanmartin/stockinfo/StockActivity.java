@@ -27,22 +27,22 @@ import java.net.URL;
 
 public class StockActivity extends AppCompatActivity {
 
-    private EditText searchStockSymbolField;
-    private Button searchButton;
-    private LinearLayout stockLinearScrollView;
+    private EditText mSearchStockSymbolField;
+    private Button mSearchButton;
+    private LinearLayout mStockLinearScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock);
 
-        searchStockSymbolField = (EditText) findViewById(R.id.SearchStockSymbolField);
-        searchButton = (Button) findViewById(R.id.SearchButton);
-        stockLinearScrollView = (LinearLayout) findViewById(R.id.stockLinearScrollView);
+        mSearchStockSymbolField = (EditText) findViewById(R.id.SearchStockSymbolField);
+        mSearchButton = (Button) findViewById(R.id.SearchButton);
+        mStockLinearScrollView = (LinearLayout) findViewById(R.id.stockLinearScrollView);
     }
 
     public void onPressSearchButton(View view) {
-        String searchText = searchStockSymbolField.getText().toString();
+        String searchText = mSearchStockSymbolField.getText().toString();
         if (searchText.length() != 0) {
             if (view != null) {
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -117,7 +117,7 @@ public class StockActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(StockData stockData) {
-            stockLinearScrollView.removeAllViews();
+            mStockLinearScrollView.removeAllViews();
             if (stockData != null && !stockData.isEmpty()) {
                 LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View stockInfoView = layoutInflater.inflate(R.layout.stock_entry_row, null);
@@ -151,11 +151,11 @@ public class StockActivity extends AppCompatActivity {
                 lastTradePriceOnly.setText("Last Trade Price Only: " + ((stockData.getLastTradePriceOnly().equals("null") ? "" : stockData.getLastTradePriceOnly())));
                 volume.setText("Volume: " + ((stockData.getVolume().equals("null") ? "" : stockData.getVolume())));
 
-                stockLinearScrollView.addView(stockInfoView);
+                mStockLinearScrollView.addView(stockInfoView);
             }
             else {
                 showAlertDialog("Error: Null Response", "No data to show", "Ok");
-                searchStockSymbolField.setText("");
+                mSearchStockSymbolField.setText("");
             }
         }
 
